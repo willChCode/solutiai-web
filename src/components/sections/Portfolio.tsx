@@ -1,0 +1,123 @@
+import React from "react";
+import { ChevronLeft, ChevronRight, Play, ArrowUpRight } from "lucide-react";
+import { projects } from "../../data/constants";
+
+interface PortfolioProps {
+  sliderRef: React.RefObject<HTMLDivElement | null>;
+  scrollSlider: (direction: "left" | "right") => void;
+}
+
+const Portfolio: React.FC<PortfolioProps> = ({ sliderRef, scrollSlider }) => {
+  return (
+    <section id="portafolio" className="py-24 border-t border-white/5">
+      <div className="container px-6 mx-auto">
+        <div className="flex flex-col items-center text-center mb-16">
+          <div className="inline-flex items-center gap-2 py-2 px-4 rounded-full border border-white/10 bg-white/5 mb-6 text-gray-300 text-xs tracking-widest font-bold uppercase transition-all duration-300">
+            <span className="w-2 h-2 rounded-full bg-[var(--brand-pink)] animate-pulse"></span>
+            Nuestro Trabajo
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-extrabold mb-4 text-white tracking-tight leading-tight">
+            Portafolio de <span className="text-gradient">Impacto Real</span>
+          </h2>
+          <p className="max-w-xl text-gray-400 text-lg leading-relaxed">
+            Transformamos ideas complejas en soluciones digitales de alto rendimiento.
+          </p>
+        </div>
+
+        <div className="relative group/slider">
+          {/* Slider Controls - Lateral */}
+          <button
+            onClick={() => scrollSlider("left")}
+            className="absolute -left-4 lg:-left-20 top-[35%] -translate-y-1/2 z-40 w-14 h-14 rounded-full border border-white/10 bg-black/60 backdrop-blur-xl flex items-center justify-center text-white opacity-40 lg:opacity-0 group-hover/slider:opacity-100 hover:bg-[var(--brand-pink)] hover:border-[var(--brand-pink)] hover:scale-110 transition-all duration-500 shadow-2xl"
+          >
+            <ChevronLeft className="w-8 h-8" />
+          </button>
+          <button
+            onClick={() => scrollSlider("right")}
+            className="absolute -right-4 lg:-right-20 top-[35%] -translate-y-1/2 z-40 w-14 h-14 rounded-full border border-white/10 bg-black/60 backdrop-blur-xl flex items-center justify-center text-white opacity-40 lg:opacity-0 group-hover/slider:opacity-100 hover:bg-[var(--brand-pink)] hover:border-[var(--brand-pink)] hover:scale-110 transition-all duration-500 shadow-2xl"
+          >
+            <ChevronRight className="w-8 h-8" />
+          </button>
+
+          <div
+            ref={sliderRef}
+            className="flex gap-8 overflow-x-auto pb-12 snap-x snap-mandatory scrollbar-hide"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-[85%] md:w-[calc((100%-32px)/2)] lg:w-[calc((100%-64px)/3)] snap-start group relative flex flex-col bg-[#110813]/40 border border-white/5 rounded-[32px] overflow-hidden hover:border-white/10 transition-all duration-500 hover:-translate-y-2"
+              >
+                {/* Media Container */}
+                <div className="relative aspect-[16/11] overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a060a] via-transparent to-transparent opacity-80"></div>
+
+                  {/* Category Tag */}
+                  <div className="absolute top-6 left-6 z-20">
+                    <span className="px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white text-[10px] font-bold uppercase tracking-wider">
+                      {project.category}
+                    </span>
+                  </div>
+
+                  {/* Play Button Overlay (Simulated for Video) */}
+                  {"video" in project && project.video && (
+                    <div className="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                      <div className="w-16 h-16 rounded-full bg-[var(--brand-pink)]/90 flex items-center justify-center shadow-[0_0_30px_rgba(249,59,105,0.5)] backdrop-blur-sm transform scale-75 group-hover:scale-100 transition-all duration-500">
+                        <Play className="w-6 h-6 text-white fill-white ml-1" />
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Content */}
+                <div className="p-8 pt-6 flex flex-col flex-grow">
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-gradient transition-all duration-300">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-400 text-[15px] leading-relaxed mb-6 h-[72px] line-clamp-3">
+                    {project.desc}
+                  </p>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {project.tags.map((tag, tIdx) => (
+                      <span
+                        key={tIdx}
+                        className="text-[10px] font-bold text-gray-400 bg-white/5 px-3 py-1 rounded-full border border-white/5"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* CTA Button */}
+                  <div className="flex items-center justify-between mt-auto">
+                    <button className="flex items-center gap-3 text-white font-bold text-xs uppercase tracking-widest group/btn">
+                      Ver detalles
+                      <div className="relative flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover/btn:bg-[var(--brand-pink)] transition-all duration-300">
+                          <ArrowUpRight className="w-4 h-4 text-gray-400 group-hover/btn:text-white transition-colors" />
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Hover Glow Background */}
+                <div className="absolute -inset-px bg-gradient-to-br from-[var(--brand-pink)]/0 via-[var(--brand-purple)]/0 to-[var(--brand-pink)]/0 group-hover:from-[var(--brand-pink)]/10 group-hover:via-transparent group-hover:to-[var(--brand-purple)]/10 rounded-[32px] transition-all duration-500 -z-10"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Portfolio;
