@@ -1,26 +1,34 @@
-import React from "react";
-import { ChevronLeft, ChevronRight, Play, ArrowUpRight } from "lucide-react";
-import { projects } from "../../data/constants";
+import React, { useRef } from "react";
+import { ChevronLeft, ChevronRight, ArrowUpRight, Play } from "lucide-react";
+import { projects } from "../../data/projects";
 
-interface PortfolioProps {
-  sliderRef: React.RefObject<HTMLDivElement | null>;
-  scrollSlider: (direction: "left" | "right") => void;
-}
+const Portfolio: React.FC = () => {
+  const sliderRef = useRef<HTMLDivElement>(null);
 
-const Portfolio: React.FC<PortfolioProps> = ({ sliderRef, scrollSlider }) => {
+  const scrollSlider = (direction: "left" | "right") => {
+    if (sliderRef.current) {
+      const { scrollLeft, clientWidth } = sliderRef.current;
+      const scrollTo =
+        direction === "left"
+          ? scrollLeft - clientWidth / 1.5
+          : scrollLeft + clientWidth / 1.5;
+      sliderRef.current.scrollTo({ left: scrollTo, behavior: "smooth" });
+    }
+  };
+
   return (
-    <section id="portafolio" className="py-24 border-t border-white/5">
+    <section id="portafolio" className="pt-20 pb-12 border-t border-white/5">
       <div className="container px-6 mx-auto">
         <div className="flex flex-col items-center text-center mb-16">
-          <div className="inline-flex items-center gap-2 py-2 px-4 rounded-full border border-white/10 bg-white/5 mb-6 text-gray-300 text-xs tracking-widest font-bold uppercase transition-all duration-300">
-            <span className="w-2 h-2 rounded-full bg-[var(--brand-pink)] animate-pulse"></span>
-            Nuestro Trabajo
-          </div>
+          <p className="text-gray-400 text-sm tracking-widest uppercase font-bold mb-4">
+            NUESTRO PORTAFOLIO
+          </p>
           <h2 className="text-4xl lg:text-5xl font-extrabold mb-4 text-white tracking-tight leading-tight">
             Portafolio de <span className="text-gradient">Impacto Real</span>
           </h2>
           <p className="max-w-xl text-gray-400 text-lg leading-relaxed">
-            Transformamos ideas complejas en soluciones digitales de alto rendimiento.
+            Transformamos ideas complejas en soluciones digitales de alto
+            rendimiento.
           </p>
         </div>
 
@@ -66,7 +74,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ sliderRef, scrollSlider }) => {
                   </div>
 
                   {/* Play Button Overlay (Simulated for Video) */}
-                  {"video" in project && project.video && (
+                  {project.video && (
                     <div className="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-all duration-500">
                       <div className="w-16 h-16 rounded-full bg-[var(--brand-pink)]/90 flex items-center justify-center shadow-[0_0_30px_rgba(249,59,105,0.5)] backdrop-blur-sm transform scale-75 group-hover:scale-100 transition-all duration-500">
                         <Play className="w-6 h-6 text-white fill-white ml-1" />

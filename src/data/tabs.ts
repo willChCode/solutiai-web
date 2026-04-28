@@ -1,31 +1,8 @@
-import logo from "../assets/img/logo/logo-blanco.svg";
-import logoPng from "../assets/img/logo/logo.png";
-import logoNav from "../assets/img/logo/logo-solutiai-nav.png";
 import bannerWeb from "../assets/img/banner/desarrollo-web.webp";
 import bannerApp from "../assets/img/banner/desarrollo-app.png";
 import bannerHosting from "../assets/img/banner/hosting-servidores.png";
 import bannerSoporte from "../assets/img/banner/soporte-anvanzado.png";
 import bannerIA from "../assets/img/banner/automatizaciones.png";
-import project1 from "../assets/img/portfolio/project1.png";
-import project2 from "../assets/img/portfolio/project2.png";
-import project3 from "../assets/img/portfolio/project3.png";
-import project4 from "../assets/img/portfolio/project4.png";
-import project5 from "../assets/img/portfolio/project5.png";
-import project6 from "../assets/img/portfolio/project6.png";
-import project7 from "../assets/img/portfolio/project7.png";
-
-export const brandLogos = [
-  logo,
-  logoPng,
-  logoNav,
-  logo,
-  logoPng,
-  logoNav,
-  logo,
-  logoPng,
-  logoNav,
-  logo,
-];
 
 export const tabs = [
   {
@@ -165,82 +142,5 @@ export const tabs = [
       },
     ],
     image: bannerApp,
-  },
-];
-
-export const testimonials = [
-  {
-    name: "Carlos Mendoza",
-    role: "Director de Operaciones, Logística Express",
-    content:
-      "La automatización con IA que implementó SolutiAI redujo nuestros tiempos de respuesta en un 60%. Ahora nuestro equipo se enfoca en tareas estratégicas y no en procesos manuales. Simplemente espectacular.",
-    rating: 5,
-  },
-  {
-    name: "Laura Villanueva",
-    role: "Fundadora, E-Commerce Moda",
-    content:
-      "El desarrollo de nuestra tienda online y el asistente virtual superaron nuestras expectativas. Las ventas han aumentado gracias a que nuestros clientes reciben respuestas instantáneas a cualquier hora.",
-    rating: 5,
-  },
-  {
-    name: "Roberto Fernández",
-    role: "CEO, TechSolutions",
-    content:
-      "Teníamos problemas constantes con nuestros servidores hasta que SolutiAI tomó el control de nuestro Hosting y WordPress. Desde entonces, el sitio vuela y no hemos tenido una sola caída. Servicio premium.",
-    rating: 5,
-  },
-];
-
-export const projects = [
-  {
-    title: "EcoSmart AI Dashboard",
-    category: "Automatización + IA",
-    image: project1,
-    video: true,
-    desc: "Gestión inteligente de energía con predicción de demanda mediante redes neuronales de alta precisión.",
-    tags: ["React", "TensorFlow", "SaaS"],
-  },
-  {
-    title: "Sterling & Black Law",
-    category: "Desarrollo Web",
-    image: project2,
-    desc: "Sitio web de alto impacto para firma legal de lujo, con sistema de gestión de casos y seguridad avanzada.",
-    tags: ["Next.js", "Tailwind", "Premium"],
-  },
-  {
-    title: "Aether Quantum X-1",
-    category: "E-commerce Premium",
-    image: project3,
-    desc: "App móvil inmersiva con realidad aumentada para visualización de calzado exclusivo y pagos seguros.",
-    tags: ["Mobile", "AR", "E-commerce"],
-  },
-  {
-    title: "NeoFlow Fintech",
-    category: "App Móvil",
-    image: project4,
-    desc: "Plataforma de gestión financiera personal con visualización de datos en tiempo real y seguridad biométrica.",
-    tags: ["React Native", "Fintech", "Security"],
-  },
-  {
-    title: "Aurélia Luxury",
-    category: "E-commerce",
-    image: project5,
-    desc: "Tienda online de alta gama para joyería de lujo, con experiencia de usuario minimalista y checkout optimizado.",
-    tags: ["Shopify", "UX/UI", "Lux"],
-  },
-  {
-    title: "Logis AI System",
-    category: "Software Empresarial",
-    image: project6,
-    desc: "Sistema avanzado de logística y cadena de suministro potenciado por IA para optimización de rutas globales.",
-    tags: ["SaaS", "Big Data", "AI"],
-  },
-  {
-    title: "Global Threat Guard",
-    category: "Ciberseguridad",
-    image: project7,
-    desc: "Dashboard de monitoreo de amenazas en tiempo real para infraestructuras críticas y redes empresariales.",
-    tags: ["Cybersecurity", "Dashboard", "Real-time"],
   },
 ];

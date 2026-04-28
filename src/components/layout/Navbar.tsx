@@ -24,18 +24,18 @@ const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
         </div>
 
         <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-400">
-          <a href="#servicios" className="hover:text-white transition-colors">
+          <a href="#inicio" className="hover:text-white transition-colors">
             Servicios
           </a>
-          <a href="#wordpress" className="hover:text-white transition-colors">
-            WordPress
+          <a href="#portafolio" className="hover:text-white transition-colors">
+            Portafolio
           </a>
-          <a href="#hosting" className="hover:text-white transition-colors">
-            Hosting
+          <a href="#contacto" className="hover:text-white transition-colors">
+            Contacto
           </a>
-          <button className="px-6 py-2.5 rounded-lg border border-white/10 hover:bg-white/5 hover:border-white/20 transition-all text-white font-semibold ml-4">
+          <a href="#contacto" className="px-6 py-2.5 rounded-lg border border-white/10 hover:bg-white/5 hover:border-white/20 transition-all text-white font-semibold ml-4">
             Agenda tu Consulta
-          </button>
+          </a>
         </div>
       </div>
     </nav>
