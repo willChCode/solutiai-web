@@ -18,6 +18,7 @@ export const brandLogos = [
   css,
   hostinger,
   html,
+  javascript,
   mongo,
   n8n,
   openai,

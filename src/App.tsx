@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import logo from "./assets/img/logo/logo-blanco.svg";
 import useFluidCursor from "./hooks/useFluidCursor";
 import Navbar from "./components/layout/Navbar";
