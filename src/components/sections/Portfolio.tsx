@@ -1,5 +1,12 @@
 import React, { useRef } from "react";
-import { ChevronLeft, ChevronRight, ArrowUpRight, Play } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  ArrowUpRight,
+  Play,
+  Smartphone,
+  Apple,
+} from "lucide-react";
 import { projects } from "../../data/projects";
 
 const Portfolio: React.FC = () => {
@@ -49,7 +56,7 @@ const Portfolio: React.FC = () => {
 
           <div
             ref={sliderRef}
-            className="flex gap-8 overflow-x-auto pb-12 snap-x snap-mandatory scrollbar-hide"
+            className="flex gap-8 overflow-x-auto pt-10 pb-12 snap-x snap-mandatory scrollbar-hide"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {projects.map((project, index) => (
@@ -62,13 +69,18 @@ const Portfolio: React.FC = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700"
+                    style={{
+                      maskImage:
+                        "linear-gradient(to bottom, black 70%, transparent 100%)",
+                      WebkitMaskImage:
+                        "linear-gradient(to bottom, black 70%, transparent 100%)",
+                    }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a060a] via-transparent to-transparent opacity-80"></div>
 
                   {/* Category Tag */}
-                  <div className="absolute top-6 left-6 z-20">
-                    <span className="px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white text-[10px] font-bold uppercase tracking-wider">
+                  <div className="absolute top-6 right-6 z-20">
+                    <span className="px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-white text-[10px] font-bold uppercase tracking-wider">
                       {project.category}
                     </span>
                   </div>
@@ -84,7 +96,7 @@ const Portfolio: React.FC = () => {
                 </div>
 
                 {/* Content */}
-                <div className="p-8 pt-6 flex flex-col flex-grow">
+                <div className="p-8 pt-4 flex flex-col flex-grow">
                   <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-gradient transition-all duration-300">
                     {project.title}
                   </h3>
@@ -106,14 +118,50 @@ const Portfolio: React.FC = () => {
 
                   {/* CTA Button */}
                   <div className="flex items-center justify-between mt-auto">
-                    <button className="flex items-center gap-3 text-white font-bold text-xs uppercase tracking-widest group/btn">
-                      Ver detalles
-                      <div className="relative flex items-center justify-center">
-                        <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover/btn:bg-[var(--brand-pink)] transition-all duration-300">
-                          <ArrowUpRight className="w-4 h-4 text-gray-400 group-hover/btn:text-white transition-colors" />
-                        </div>
+                    {project.appLinks ? (
+                      <div className="flex flex-wrap items-center gap-4 w-full justify-between px-2">
+                        <a
+                          href={project.appLinks.appStore}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="flex items-center gap-2 text-white font-bold text-[10px] sm:text-xs uppercase tracking-widest group/btn"
+                        >
+                          App Store
+                          <div className="relative flex items-center justify-center">
+                            <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover/btn:bg-[var(--brand-pink)] transition-all duration-300">
+                              <Apple className="w-4 h-4 text-gray-400 group-hover/btn:text-white transition-colors" />
+                            </div>
+                          </div>
+                        </a>
+                        <a
+                          href={project.appLinks.playStore}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="flex items-center gap-2 text-white font-bold text-[10px] sm:text-xs uppercase tracking-widest group/btn"
+                        >
+                          Google Play
+                          <div className="relative flex items-center justify-center">
+                            <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover/btn:bg-[var(--brand-pink)] transition-all duration-300">
+                              <Smartphone className="w-4 h-4 text-gray-400 group-hover/btn:text-white transition-colors" />
+                            </div>
+                          </div>
+                        </a>
                       </div>
-                    </button>
+                    ) : (
+                      <a
+                        href={project.link || "#"}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex items-center gap-3 text-white font-bold text-xs uppercase tracking-widest group/btn"
+                      >
+                        Ver detalles
+                        <div className="relative flex items-center justify-center">
+                          <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover/btn:bg-[var(--brand-pink)] transition-all duration-300">
+                            <ArrowUpRight className="w-4 h-4 text-gray-400 group-hover/btn:text-white transition-colors" />
+                          </div>
+                        </div>
+                      </a>
+                    )}
                   </div>
                 </div>
 

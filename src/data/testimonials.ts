@@ -1,23 +1,23 @@
 export const testimonials = [
   {
-    name: "Carlos Mendoza",
-    role: "Director de Operaciones, Logística Express",
+    name: "BuscaYa – Will CH",
+    role: "Aplicación Móvil",
     content:
-      "La automatización con IA que implementó SolutiAI redujo nuestros tiempos de respuesta en un 60%. Ahora nuestro equipo se enfoca en tareas estratégicas y no en procesos manuales. Simplemente espectacular.",
+      "El desarrollo de BuscaYa quedó muy bien. Durante el proceso hicieron varios ajustes según lo que necesitábamos y después del lanzamiento siguieron apoyando. Se nota el compromiso.",
     rating: 5,
   },
   {
-    name: "Laura Villanueva",
-    role: "Fundadora, E-Commerce Moda",
+    name: "Carla Garza",
+    role: "E-Commerce",
     content:
-      "El desarrollo de nuestra tienda online y el asistente virtual superaron nuestras expectativas. Las ventas han aumentado gracias a que nuestros clientes reciben respuestas instantáneas a cualquier hora.",
+      "Nuestra tienda de accesorios quedó increíble. Ahora podemos gestionar pedidos y envíos sin complicaciones, y todo funciona rápido y estable.",
     rating: 5,
   },
   {
-    name: "Roberto Fernández",
-    role: "CEO, TechSolutions",
+    name: "Carlos Ramírez",
+    role: "Automatización de Procesos",
     content:
-      "Teníamos problemas constantes con nuestros servidores hasta que SolutiAI tomó el control de nuestro Hosting y WordPress. Desde entonces, el sitio vuela y no hemos tenido una sola caída. Servicio premium.",
+      "Se mejoró el sistema de reclutamiento. Ahora todos los candidatos se guardan en una base de datos, podemos ver CV, contratos, filtrarlos y recontratar fácilmente. Nos ahorra tiempo en RRHH.",
     rating: 5,
   },
 ];
